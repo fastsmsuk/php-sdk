@@ -1,0 +1,35 @@
+{
+    "name": "Netsecrets/FastSMS",
+    "type": "sdk",
+    "description": "SDK for FastSMS api.",
+    "keywords": ["fastsms", "sms", "api", "sdk"],
+    "license": "BSD-3-Clause",
+    "support": {
+        "issues": "https://bitbucket.org/lezgro/fastsms-php-sdk/issues",
+        "wiki": "https://bitbucket.org/lezgro/fastsms-php-sdk/wiki",
+        "source": "https://bitbucket.org/lezgro/fastsms-php-sdk/src"
+    },
+    "authors": [
+        {
+            "name": "Ruslan Tabachuk",
+            "email": "ruslan.tabachuk@lezgro.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.0.*"
+    },
+    "autoload": {
+        "psr-4" : {
+            "Netsecrets\\FastSMS\\" : "src"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.x-dev"
+        }
+    }
+}
