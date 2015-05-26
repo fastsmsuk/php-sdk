@@ -45,8 +45,7 @@ $FastSMS = new Netsecrets\FastSMS\FastSMS('your token');
 ```
 or
 ```
-#!php5
-#
+#!php
 use Netsecrets\FastSMS\FastSMS;
 ...
 $FastSMS = new FastSMS('your token');
