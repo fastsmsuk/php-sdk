@@ -54,8 +54,6 @@ Actions
 ### Check Credits
 Checks your current credit balance.
 ```
-use Netsecrets\FastSMS\FastSMS;
-$FastSMS = new FastSMS('your token');
 $credits = $FastSMS->checkCredits(); //return float val
 echo number_format($credits, 2); //example show 1,000.00
 ```
