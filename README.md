@@ -1,7 +1,7 @@
 PHP SDK for FastSMS API.
 ===========================
-PHP library to access [![FastSMS](http://www.fastsms.co.uk/) api.
-Thank you for choosing [![FastSMS](http://www.fastsms.co.uk/)
+PHP library to access [FastSMS](http://www.fastsms.co.uk/) api.
+Thank you for choosing [FastSMS](http://www.fastsms.co.uk/)
 
 DIRECTORY STRUCTURE
 -------------------
@@ -25,10 +25,12 @@ INSTALLATION
 -------------
 Add to composer
 ```js
-    "require": {
-        "...":     "*",
-        "...":   "*"
-        // ...
+"require": {
+    // ...
+    "...":   "*",
+    "...":   "*"
+    // ...
+}
 ```
 
 USAGE
@@ -44,5 +46,5 @@ or
 use Netsecrets\FastSMS\FastSMS;
 ...
 $FastSMS = new FastSMS('your token');
-....
+...
 ```
