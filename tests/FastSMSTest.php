@@ -25,4 +25,15 @@ class FastSMSTest extends PHPUnit_Framework_TestCase
         $this->assertArrayHasKey($this->sdk->getHTTPLibrary(), FastSMS::getSupportHTTPLibraries());
     }
 
+    /**
+     * Test Check Credits
+     * Check is float type
+     */
+    public function testCheckCredits()
+    {
+        $credits = $this->sdk->checkCredits();
+        $this->assertNotEmpty($credits);
+        $this->assertInternalType('float', $credits);
+    }
+
 }

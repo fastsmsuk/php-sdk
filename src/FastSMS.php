@@ -26,6 +26,10 @@ class FastSMS
      */
     private $token;
 
+    /**
+     * Create FastSMS object and set Auth data.
+     * @param string $token Auth token
+     */
     public function __construct($token)
     {
         $this->token = $token;
@@ -33,6 +37,15 @@ class FastSMS
         if (!$this->library) {
             $this->initHTTPLibrary();
         }
+    }
+
+    /**
+     * Check credits.
+     * @return float Credits
+     */
+    public function checkCredits()
+    {
+        return floatval($this->call('CheckCredits'));
     }
 
     /**
@@ -47,14 +60,14 @@ class FastSMS
     /**
      * Make an API call
      */
-    protected function call($call, $args = [])
+    protected function call($action, $args = [])
     {
         $response = null;
         switch ($this->library) {
             case 'curl':
                 $ch = curl_init();
                 //set curl options
-                curl_setopt($ch, CURLOPT_URL, $this->buildUrl($call));
+                curl_setopt($ch, CURLOPT_URL, $this->buildUrl($action));
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
                 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
                 curl_setopt($ch, CURLOPT_POST, 1);
@@ -64,7 +77,7 @@ class FastSMS
                 $response = curl_exec($ch);
                 break;
             case 'openssl':
-                $url = $this->call_url($call, []);
+                $url = $this->call_url($action, []);
                 $headers = "POST /api HTTP/1.0\r\n";
                 $headers .= "Host: " . $url . "\r\n";
                 $poststring = http_build_query($args, "", "&");
@@ -104,7 +117,7 @@ class FastSMS
     protected function buildUrl($action, $args = [])
     {
         $args['Action'] = $action;
-        $url = $this->_url . '?' . http_build_query($this->buildArgs($args), "", "&");
+        $url = $this->url . '?' . http_build_query($this->buildArgs($args), "", "&");
         return $url;
     }
 
