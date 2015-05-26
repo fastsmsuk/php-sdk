@@ -39,13 +39,10 @@ Init SDK
 -------------
 Your token (found in your [settings](https://my.fastsms.co.uk/account/settings) within NetMessenger)
 ```
-#!php5
-#
 $FastSMS = new Netsecrets\FastSMS\FastSMS('your token');
 ```
 or
 ```
-#!php
 use Netsecrets\FastSMS\FastSMS;
 ...
 $FastSMS = new FastSMS('your token');
