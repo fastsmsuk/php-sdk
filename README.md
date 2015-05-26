@@ -34,9 +34,9 @@ Add to composer
 ```
 
 USAGE
--------------
-Init SDK
 =============
+Init SDK
+-------------
 Your token (found in your [settings](https://my.fastsms.co.uk/account/settings) within NetMessenger)
 ```php
 $FastSMS = new Netsecrets\FastSMS\FastSMS('your token');
@@ -47,4 +47,15 @@ use Netsecrets\FastSMS\FastSMS;
 ...
 $FastSMS = new FastSMS('your token');
 ...
+```
+
+Actions
+-------------
+### Check Credits
+Checks your current credit balance.
+```php
+use Netsecrets\FastSMS\FastSMS;
+$FastSMS = new FastSMS('your token');
+$credits = $FastSMS->checkCredits(); //return float val
+echo number_format($credits, 2); //example show 1,000.00
 ```
