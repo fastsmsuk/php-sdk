@@ -38,11 +38,11 @@ USAGE
 Init SDK
 -------------
 Your token (found in your [settings](https://my.fastsms.co.uk/account/settings) within NetMessenger)
-```php
+```php5
 $FastSMS = new Netsecrets\FastSMS\FastSMS('your token');
 ```
 or
-```php
+```php5
 use Netsecrets\FastSMS\FastSMS;
 ...
 $FastSMS = new FastSMS('your token');
@@ -53,7 +53,7 @@ Actions
 -------------
 ### Check Credits
 Checks your current credit balance.
-```php
+```php5
 use Netsecrets\FastSMS\FastSMS;
 $FastSMS = new FastSMS('your token');
 $credits = $FastSMS->checkCredits(); //return float val
