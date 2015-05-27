@@ -2,6 +2,7 @@ PHP SDK for FastSMS API.
 ===========================
 PHP library to access [FastSMS](http://www.fastsms.co.uk/) api.
 Thank you for choosing [FastSMS](http://www.fastsms.co.uk/)
+--
 [![Latest Stable Version](https://poser.pugx.org/netsecrets/fastsms/v/stable)](https://packagist.org/packages/netsecrets/fastsms)
 [![Total Downloads](https://poser.pugx.org/netsecrets/fastsms/downloads)](https://packagist.org/packages/netsecrets/fastsms)
 [![Latest Unstable Version](https://poser.pugx.org/netsecrets/fastsms/v/unstable)](https://packagist.org/packages/netsecrets/fastsms)
