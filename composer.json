@@ -2,7 +2,7 @@
     "name": "netsecrets/fastsms",
     "type": "sdk",
     "description": "SDK for FastSMS api.",
-    "keywords": ["fastsms", "sms", "api", "sdk"],
+    "keywords": ["fastsms", "sms", "newsletter", "api", "sdk"],
     "license": "BSD-3-Clause",
     "support": {
         "issues": "https://bitbucket.org/lezgro/fastsms-php-sdk/issues",
