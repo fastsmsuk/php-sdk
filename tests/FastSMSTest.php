@@ -2,6 +2,8 @@
 
 use Netsecrets\FastSMS\FastSMS;
 
+require_once __DIR__ . '/../vendor/autoload.php';
+
 class FastSMSTest extends PHPUnit_Framework_TestCase
 {
 

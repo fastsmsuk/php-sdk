@@ -1,5 +1,5 @@
 {
-    "name": "Netsecrets/FastSMS",
+    "name": "netsecrets/fastsms",
     "type": "sdk",
     "description": "SDK for FastSMS api.",
     "keywords": ["fastsms", "sms", "api", "sdk"],
