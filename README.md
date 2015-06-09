@@ -43,21 +43,38 @@ Init SDK
 -------------
 Your token (found in your [settings](https://my.fastsms.co.uk/account/settings) within NetMessenger)
 ```
-$FastSMS = new Netsecrets\FastSMS\FastSMS('your token');
+$FastSMS = new FastSMS\Client('your token');
 ```
 or
 ```
-use Netsecrets\FastSMS\FastSMS;
+use FastSMS\Client;
 ...
-$FastSMS = new FastSMS('your token');
+$FastSMS = new Client('your token');
 ...
+```
+
+Wrap errors
+-------------
+List all API codes found in [docs](http://support.fastsms.co.uk/knowledgebase/http-documentation/#ErrorCodes)
+```
+use FastSMS\Client;
+use FastSMS\Exception\ApiException;
+...
+$client = new Client('your token');
+try {
+    $credits = $client->credits->balance;
+} catch (ApiException $aex) {
+    echo 'API error #' . $aex->getCode() . ': ' . $aex->getMessage();
+} catch (Exception $ex) {
+    echo $ex->getMessage();
+}
 ```
 
 Actions
 -------------
-### Check Credits
+### Credits
 Checks your current credit balance.
 ```
-$credits = $FastSMS->checkCredits(); //return float val
+$credits = $client->credits->balance; //return float val
 echo number_format($credits, 2); //example show 1,000.00
 ```
