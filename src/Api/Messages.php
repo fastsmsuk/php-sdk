@@ -7,8 +7,6 @@ use FastSMS\Model\Message;
 /**
  * This is the API class for Messages
  *
- * @property float $balance Current credit balance.
- *
  * @property Categories $parent
  * @property Categories[] $categories
  */
@@ -25,6 +23,8 @@ class Messages extends AbstractApi
         $args = $message->buildArgs();
         $result = [];
         $data = $this->client->http->call('Send', $args);
+        $result['type'] = '';
+        $result['send'] = 'error';
         if (isset($args['GroupName']) && $data == 1) {
             $result['type'] = 'group';
             $result['send'] = 'success';
