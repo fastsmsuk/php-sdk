@@ -112,12 +112,16 @@ class Http
         switch ($this->library) {
             case 'guzzle':
                 $result = $this->guzzle($this->buildArgs($action, $args, true));
+                break;
             case 'curl':
                 $result = $this->curl($this->buildArgs($action, $args));
+                break;
             case 'openssl':
                 $result = $this->openssl($this->buildArgs($action, $args));
+                break;
             default:
                 $result = $this->basephp($this->buildArgs($action, $args));
+                break;
         }
         if ($result < 0) {
             $message = self::getApiErrors($result);
@@ -164,7 +168,7 @@ class Http
         if (!$result) {
             throw new RuntimeException('Connection to ' . self::SHEMA . self::URL . ' failed.');
         }
-        return curl_exec($ch);
+        return $result;
     }
 
     /**

@@ -4,8 +4,9 @@ use FastSMS\Client;
 use FastSMS\Exception\ApiException;
 
 require __DIR__ . '/../vendor/autoload.php';
+$config = require __DIR__ . '/config.php';
 
-$client = new Client('your token');
+$client = new Client($config['token']);
 
 try {
     $balance = $client->credits->balance;

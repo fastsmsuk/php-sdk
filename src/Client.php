@@ -3,12 +3,14 @@
 namespace FastSMS;
 
 use FastSMS\Api\Credits;
+use FastSMS\Api\Messages;
 use FastSMS\Exception\RuntimeException;
 
 /**
  * This is the core class for FastSMS API wraper.
  *
- * @property Credits $credits Credits object
+ * @property Credits $credits Credits API
+ * @property Messages $message Messages API
  */
 class Client
 {
@@ -68,17 +70,9 @@ class Client
         switch ($name) {
             case 'credits':
                 return new Credits($this);
+            case 'message':
+                return new Messages($this);
         }
     }
 
-    /**
-     * Check credits.
-     * @return \FastSMS\Api\Credits
-     */
-    /*
-      public function credits()
-      {
-      return new Credits($this);
-      }
-     */
 }

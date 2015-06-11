@@ -78,3 +78,27 @@ Checks your current credit balance.
 $credits = $client->credits->balance; //return float val
 echo number_format($credits, 2); //example show 1,000.00
 ```
+
+### Send
+Sends a message. More information read [this](http://support.fastsms.co.uk/knowledgebase/http-documentation/#SendMessage)
+```
+...
+use FastSMS\Model\Message;
+...
+// Init Message data
+$data = [
+    //set
+    'destinationAddress' => 'Phone number or multiple numbers in array',
+    //or
+    'list' => 'Your contacts list',
+    //or
+    'group' => 'Your contacts group'
+
+    'sourceAddress' => 'Your Source Address',
+    'body' => 'Message Body', //Note: max 459 characters
+    'scheduleDate' => time() + 7200, //Note: This param must be Europe/London timezone
+    'validityPeriod' => 3600 * 6, //maximum 86400 = 24 hours
+];
+$message = new Message($data);
+$result = $client->message->send($message);
+```
