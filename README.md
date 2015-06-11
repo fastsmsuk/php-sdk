@@ -97,7 +97,7 @@ $data = [
     'sourceAddress' => 'Your Source Address',
     'body' => 'Message Body', //Note: max 459 characters
     //optionals
-    'scheduleDate' => time() + 7200, //Note: This param must be Europe/London timezone
+    'scheduleDate' => time() + 7200, //now + 2h
     'validityPeriod' => 3600 * 6, //maximum 86400 = 24 hours
 ];
 $message = new Message($data);
@@ -125,6 +125,7 @@ $data = [
 ];
 $user = new User($data);
 $result = $client->user->create($user);
+```
 
 ### Update Credits
 Transfer credits to/from a child user. Only possible if you are an admin user. More information read [this](http://support.fastsms.co.uk/knowledgebase/http-documentation/#UpdateCredits)
@@ -138,4 +139,32 @@ $data = [
 ];
 $user = new User($data);
 $result = $client->user->update($user);
+```
 
+### Reports
+Retrieve the data from a report. More information read [this](http://support.fastsms.co.uk/knowledgebase/http-documentation/#Reports)
+Aviable types:
+- ArchivedMessages
+- ArchivedMessagesWithBodies
+- ArchivedMessagingSummary
+- BackgroundSends
+- InboundMessages
+- KeywordMessageList
+- Messages
+- MessagesWithBodies
+- SendsByDistributionList
+- Usage
+```
+...
+use FastSMS\Model\Report;
+...
+// Init Report params
+$data = [
+    'reportType' => 'Messages',
+    'from' => time() - 3600 * 24 * 30,
+    'to' => time()
+];
+$report = new Report($data);
+// Get report
+$result = $client->report->get($report);
+```

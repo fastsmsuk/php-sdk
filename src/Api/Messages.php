@@ -6,9 +6,6 @@ use FastSMS\Model\Message;
 
 /**
  * This is the API class for Messages
- *
- * @property Categories $parent
- * @property Categories[] $categories
  */
 class Messages extends AbstractApi
 {

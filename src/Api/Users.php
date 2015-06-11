@@ -6,9 +6,6 @@ use FastSMS\Model\User;
 
 /**
  * This is the API class for Users
- *
- * @property Categories $parent
- * @property Categories[] $categories
  */
 class Users extends AbstractApi
 {

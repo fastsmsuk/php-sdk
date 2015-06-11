@@ -1,7 +1,7 @@
 <?php
 
 use FastSMS\Client;
-use FastSMS\Model\User;
+use FastSMS\Model\Report;
 use FastSMS\Exception\ApiException;
 
 require __DIR__ . '/../vendor/autoload.php';
@@ -11,23 +11,30 @@ $config = require __DIR__ . '/config.php';
 $client = new Client($config['token']);
 
 #####################################
-###########Create new user###########
+#############Get report##############
 #####################################
-// Init Message data model
+// Init Report params
 $data = [
-    'childUsername' => $config['existChildUser'],
-    'quantity' => -5,
+    'reportType' => 'Usage',
+    'from' => time() - 3600 * 24 * 30,
+    'to' => time()
 ];
-$user = new User($data);
-// Update credits
+$report = new Report($data);
+// Get report
 try {
-    $result = $client->user->update($user);
+    $result = $client->report->get($report);
     print_r($result);
     /*
      * Example return:
-     * Array
+     * [0] => Array
      * (
-     *    [status] => success
+     *     [Status] => Delivered
+     *     [Messages] => 5
+     * )
+     * [1] => Array
+     * (
+     *     [Status] => Undeliverable
+     *     [Messages] => 3
      * )
      */
 } catch (ApiException $aex) {

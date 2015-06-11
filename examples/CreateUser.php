@@ -27,7 +27,7 @@ $data = [
     'alert' => 5, //5 days
 ];
 $user = new User($data);
-// Send Message
+// Create user
 try {
     $result = $client->user->create($user);
     print_r($result);

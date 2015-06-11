@@ -6,9 +6,6 @@ namespace FastSMS\Api;
  * This is the API class for Credits
  *
  * @property float $balance Current credit balance.
- *
- * @property Categories $parent
- * @property Categories[] $categories
  */
 class Credits extends AbstractApi
 {

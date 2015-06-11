@@ -52,12 +52,6 @@ class Message extends BaseModel
     public $validityPeriod;
 
     /**
-     * Type Of Number for the source address (1 for international, 5 for alphanumeric)
-     * @var integer
-     */
-    private $sourceTON;
-
-    /**
      * If the message is longer than 160 characters, the system by default will return only the first ID 
      * for each message. Set this parameter to 1 to return all the Ids for each part of each message.
      * @var integer
@@ -101,7 +95,9 @@ class Message extends BaseModel
         }
         // Set schedule
         if ($this->scheduleDate && !empty($this->scheduleDate) && is_integer($this->scheduleDate)) {
-            $args['ScheduleDate'] = date('YmdHis', $this->scheduleDate);
+            $date = new \DateTime("@".$this->scheduleDate);
+            $date->setTimezone(new \DateTimeZone('Europe/London'));
+            $args['ScheduleDate'] = $date->format('YmdHis');
         }
         // Set validity
         if ($this->validityPeriod && is_integer($this->validityPeriod) &&

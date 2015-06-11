@@ -5,6 +5,7 @@ namespace FastSMS;
 use FastSMS\Api\Credits;
 use FastSMS\Api\Messages;
 use FastSMS\Api\Users;
+use FastSMS\Api\Reports;
 use FastSMS\Exception\RuntimeException;
 
 /**
@@ -13,6 +14,7 @@ use FastSMS\Exception\RuntimeException;
  * @property Credits $credits Credits API
  * @property Messages $message Messages API
  * @property Users $user Users API
+ * @property Reports $report Reports API
  */
 class Client
 {
@@ -76,6 +78,8 @@ class Client
                 return new Messages($this);
             case 'user':
                 return new Users($this);
+            case 'report':
+                return new Reports($this);
         }
     }
 

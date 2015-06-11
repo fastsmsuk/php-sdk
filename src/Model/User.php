@@ -5,6 +5,7 @@ namespace FastSMS\Model;
 /**
  * Create user.
  * @link http://support.fastsms.co.uk/knowledgebase/http-documentation/#CreateUser Docs
+ * @link http://support.fastsms.co.uk/knowledgebase/http-documentation/#UpdateCredits  Docs
  */
 class User extends BaseModel
 {
