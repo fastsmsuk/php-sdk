@@ -125,3 +125,17 @@ $data = [
 ];
 $user = new User($data);
 $result = $client->user->create($user);
+
+### Update Credits
+Transfer credits to/from a child user. Only possible if you are an admin user. More information read [this](http://support.fastsms.co.uk/knowledgebase/http-documentation/#UpdateCredits)
+```
+...
+use FastSMS\Model\User;
+// Init update user data
+$data = [
+    'childUsername' => 'Exist Username',
+    'quantity' => -5, //The amount of credits to transfer.
+];
+$user = new User($data);
+$result = $client->user->update($user);
+

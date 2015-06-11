@@ -29,5 +29,22 @@ class Users extends AbstractApi
         }
         return $result;
     }
+    
+    /**
+     * Update user
+     * @param \FastSMS\Model\User $user user model
+     * @return array
+     */
+    public function update(User $user)
+    {
+        $args = $user->buildArgs();
+        $result = [];
+        $data = $this->client->http->call('UpdateCredits', $args);
+        $result['status'] = 'error';
+        if ($data == 1) {
+            $result['status'] = 'success';
+        }
+        return $result;
+    }
 
 }

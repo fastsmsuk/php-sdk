@@ -50,6 +50,13 @@ class User extends BaseModel
      * @var integer
      */
     public $credits;
+    
+    /**
+     * The amount of credits to transfer. If the number is positive, credits will be transferred to that user.
+     * If the number is negative, they will be transferred from that user to you.
+     * @var integer
+     */
+    public $quantity;
 
     /**
      * The telephone number of the user.
@@ -98,6 +105,9 @@ class User extends BaseModel
         }
         if ($this->credits && !empty($this->credits) && is_integer($this->credits)) {
             $args['Credits'] = $this->credits;
+        }
+        if ($this->quantity && !empty($this->quantity) && is_integer($this->quantity)) {
+            $args['Quantity'] = $this->quantity;
         }
         if ($this->telephone && !empty($this->telephone) && is_integer($this->telephone)) {
             $args['Telephone'] = $this->telephone;

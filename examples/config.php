@@ -17,4 +17,6 @@ return [
     'lastName' => 'Tabachuk',
     'email' => 'xskiner@gmail.com',
     'telephone' => 380965231000,
+    ###Update credits###
+    'existChildUser' => 'xskiner',
 ];
