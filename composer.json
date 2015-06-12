@@ -1,13 +1,13 @@
 {
-    "name": "netsecrets/fastsms",
+    "name": "fastsms/sdk",
     "type": "sdk",
     "description": "SDK for FastSMS api.",
     "keywords": ["fastsms", "sms", "newsletter", "api", "sdk"],
     "license": "BSD-3-Clause",
     "support": {
-        "issues": "https://bitbucket.org/lezgro/fastsms-php-sdk/issues",
-        "wiki": "https://bitbucket.org/lezgro/fastsms-php-sdk/wiki",
-        "source": "https://bitbucket.org/lezgro/fastsms-php-sdk/src"
+        "issues": "https://github.com/fastsmsuk/php-sdk/issues",
+        "wiki": "https://github.com/fastsmsuk/php-sdk/wiki",
+        "source": "https://github.com/fastsmsuk/php-sdk"
     },
     "authors": [
         {
@@ -30,7 +30,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "0.1.x-dev"
+            "dev-master": "0.2.x-dev"
         }
     }
 }
