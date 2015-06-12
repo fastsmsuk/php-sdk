@@ -104,6 +104,12 @@ $message = new Message($data);
 $result = $client->message->send($message);
 ```
 
+### Check message status
+Check send message status. More information read [this](http://support.fastsms.co.uk/knowledgebase/http-documentation/#CheckMessageStatus)
+```
+$result = $client->message->status($token);// Token must be integer
+```
+
 ### Create User
 Create new child user. Only possible if you are an admin user. More information read [this](http://support.fastsms.co.uk/knowledgebase/http-documentation/#CreateUser)
 ```

@@ -63,7 +63,6 @@ class Message extends BaseModel
      */
     public function buildArgs()
     {
-        $args = [];
         // Set destination
         if ($this->list && !empty($this->list) && is_string($this->list)) {
             $args['DestinationAddress'] = 'List';

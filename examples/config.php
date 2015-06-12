@@ -19,4 +19,6 @@ return [
     'telephone' => 380965231000,
     ###Update credits###
     'existChildUser' => 'xskiner',
+    ###Message status###
+    'existMessage' => 55515192,
 ];

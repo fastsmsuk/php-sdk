@@ -36,4 +36,20 @@ class Messages extends AbstractApi
         return $result;
     }
 
+    /**
+     * Get exist message status.
+     * @param int $messageID Exist message ID
+     */
+    public function status($messageID)
+    {
+        $args = [];
+        $result = [];
+        if ($messageID && !empty($messageID) && is_integer($messageID)) {
+            $args['MessageID'] = $messageID;
+        }
+        $data = $this->client->http->call('CheckMessageStatus', $args);
+        $result['status'] = $data;
+        return $result;
+    }
+
 }
