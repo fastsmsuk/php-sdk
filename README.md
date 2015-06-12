@@ -30,10 +30,9 @@ INSTALLATION
 Add to composer
 ```js
 "require": {
-    // ...
-    "...":   "*",
-    "...":   "*"
-    // ...
+    ...
+    "fastsms/sdk:": "*",
+    ...
 }
 ```
 
