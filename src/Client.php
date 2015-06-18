@@ -7,6 +7,7 @@ use FastSMS\Api\Messages;
 use FastSMS\Api\Users;
 use FastSMS\Api\Reports;
 use FastSMS\Api\Contacts;
+use FastSMS\Api\Groups;
 use FastSMS\Exception\RuntimeException;
 
 /**
@@ -17,6 +18,8 @@ use FastSMS\Exception\RuntimeException;
  * @property Users $user Users API
  * @property Reports $report Reports API
  * @property Contacts $contact Contacts API
+ * @property Groups $group Groups API
+ * 
  */
 class Client
 {
@@ -84,6 +87,8 @@ class Client
                 return new Reports($this);
             case 'contact':
                 return new Contacts($this);
+            case 'group':
+                return new Groups($this);
         }
     }
 

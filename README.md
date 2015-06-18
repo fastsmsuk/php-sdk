@@ -173,3 +173,64 @@ $report = new Report($data);
 // Get report
 $result = $client->report->get($report);
 ```
+
+### Add contact(s)
+Create contact(s). More information read [this](http://support.fastsms.co.uk/knowledgebase/http-documentation/#ImportContactsCSV)
+```
+...
+use FastSMS\Model\Contact;
+...
+// Init Contacts data
+$data = [
+    'contacts' => [
+        ['name' => 'John Doe 1', 'number' => 15417543011, 'email' => 'john.doe.1@example.com'],
+        ['name' => 'John Doe 2', 'number' => 15417543012, 'email' => 'john.doe.2@example.com'],
+        ['name' => 'John Doe 3', 'number' => 15417543013, 'email' => 'john.doe.3@example.com'],
+    ],
+    'ignoreDupes' => false
+    'overwriteDupes' => true
+];
+$contacts = new Contact($data);
+// Get report
+$result = $client->contact->create($contacts);
+```
+
+### Delete All Contacts
+More information read [this](http://support.fastsms.co.uk/knowledgebase/http-documentation/#DeleteAllContacts)
+```
+...
+use FastSMS\Model\Contact;
+...
+// Get report
+$result = $client->contact->deleteAll();
+```
+
+### Delete All Groups
+More information read [this](http://support.fastsms.co.uk/knowledgebase/http-documentation/#DeleteAllGroups)
+```
+...
+use FastSMS\Model\Contact;
+...
+// Get report
+$result = $client->group->deleteAll();
+```
+
+### Empty Group
+Remove all contacts from the specified group. More information read [this](http://support.fastsms.co.uk/knowledgebase/http-documentation/#EmptyGroup)
+```
+...
+use FastSMS\Model\Contact;
+...
+// Get report
+$result = $client->group->emptyGroup('Group Name');
+```
+
+### Delete Group
+Delete the specified group. More information read [this](http://support.fastsms.co.uk/knowledgebase/http-documentation/#DeleteGroup)
+```
+...
+use FastSMS\Model\Contact;
+...
+// Get report
+$result = $client->group->deleteGroup('Group Name');
+```
