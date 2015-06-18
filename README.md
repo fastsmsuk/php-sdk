@@ -6,7 +6,7 @@ Thank you for choosing [FastSMS](http://www.fastsms.co.uk/)<br/>
 [![Total Downloads](https://poser.pugx.org/fastsms/sdk/downloads)](https://packagist.org/packages/fastsms/sdk)
 [![Latest Unstable Version](https://poser.pugx.org/fastsms/sdk/v/unstable)](https://packagist.org/packages/fastsms/sdk)
 [![License](https://poser.pugx.org/fastsms/sdk/license)](https://packagist.org/packages/fastsms/sdk)
-[![Build Status](https://travis-ci.org/LEZGROLLC/FastSMS-PHP-SDK.svg)](https://travis-ci.org/LEZGROLLC/FastSMS-PHP-SDK)
+[![Build Status](https://travis-ci.org/fastsmsuk/php-sdk.svg)](https://travis-ci.org/fastsmsuk/php-sdk)
 DIRECTORY STRUCTURE
 -------------------
 
