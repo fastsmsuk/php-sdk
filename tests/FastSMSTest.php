@@ -16,7 +16,7 @@ class FastSMSTest extends PHPUnit_Framework_TestCase
 
     public function __construct($name = null, array $data = array(), $dataName = '')
     {
-        //$this->sdk = new Client();
+        $this->sdk = new Client();
         parent::__construct($name, $data, $dataName);
     }
 
