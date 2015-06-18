@@ -76,7 +76,9 @@ class Http
     {
         if (version_compare(PHP_VERSION, '5.5.0') >= 0) {
             if (ini_get('allow_url_fopen')) {
-                return true;
+                if(class_exists('\\GuzzleHttp\\Client')){
+                    return true;
+                }                
             }
         }
         return false;
