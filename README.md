@@ -11,14 +11,14 @@ DIRECTORY STRUCTURE
 -------------------
 
 ```
-src/                 core wraper code
-tests/               tests of the core wraper code
+src/                 core wrapper code
+tests/               tests of the core wrapper code
 ```
 
 REQUIREMENTS
 ------------
 
-The minimum requirement by FastSMS wraper is that your Web server supports PHP 5.4.
+The minimum requirement by FastSMS wrapper is that your Web server supports PHP 5.4.
 
 DOCUMENTATION
 -------------
@@ -61,7 +61,7 @@ use FastSMS\Exception\ApiException;
 ...
 $client = new Client('your token');
 try {
-    $credits = $client->credits->balance;
+    $credits = $client->credits->getBalance();
 } catch (ApiException $aex) {
     echo 'API error #' . $aex->getCode() . ': ' . $aex->getMessage();
 } catch (Exception $ex) {
@@ -106,7 +106,7 @@ $result = $client->message->send($message);
 ### Check message status
 Check send message status. More information read [this](http://support.fastsms.co.uk/knowledgebase/http-documentation/#CheckMessageStatus)
 ```
-$result = $client->message->status($token);// Token must be integer
+$result = $client->message->status($messageId);// Message Id must be integer
 ```
 
 ### Create User
@@ -187,7 +187,7 @@ $data = [
         ['name' => 'John Doe 2', 'number' => 15417543012, 'email' => 'john.doe.2@example.com'],
         ['name' => 'John Doe 3', 'number' => 15417543013, 'email' => 'john.doe.3@example.com'],
     ],
-    'ignoreDupes' => false
+    'ignoreDupes' => false,
     'overwriteDupes' => true
 ];
 $contacts = new Contact($data);

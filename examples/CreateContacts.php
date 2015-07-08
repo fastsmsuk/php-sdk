@@ -20,6 +20,7 @@ $data = [
         ['name' => 'John Doe 2', 'number' => 15417543012, 'email' => 'john.doe.2@example.com'],
         ['name' => 'John Doe 3', 'number' => 15417543013, 'email' => 'john.doe.3@example.com'],
     ],
+    'ignoreDupes' => false,
     'overwriteDupes' => true
 ];
 $contacts = new Contact($data);

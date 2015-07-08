@@ -2,7 +2,7 @@
 
 namespace FastSMS\Exception;
 
-class UnknownPropertyException extends Exception
+class UnknownPropertyException extends \Exception
 {
 
     /**
