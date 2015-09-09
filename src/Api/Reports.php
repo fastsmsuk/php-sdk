@@ -16,9 +16,9 @@ class Reports extends AbstractApi
      * @param \FastSMS\Model\Report $report report model
      * @return mixed
      */
-    public function get(Report $report)
+    public function get(Array $data)
     {
-        $args = $report->buildArgs();
+        $args = (new Report($data))->buildArgs();
         $data = [];
         $result = [];
         $csv = $this->client->http->call('Report', $args);

@@ -15,9 +15,9 @@ class Contacts extends AbstractApi
      * @param \FastSMS\Model\Contact $contacts Contact model
      * @return array
      */
-    public function create(Contact $contacts)
+    public function create(Array $data)
     {
-        $args = $contacts->buildArgs();
+        $args = (new Contact($data))->buildArgs();
         $result = [];
         $pdata = [];
         $data = $this->client->http->call('ImportContactsCSV', $args);

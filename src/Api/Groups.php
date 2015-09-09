@@ -8,6 +8,14 @@ namespace FastSMS\Api;
 class Groups extends AbstractApi
 {
 
+    public function __call($method, $arguments) {
+        if ($method == 'empty') {
+            if (isset($arguments[0])){
+                return $this->emptyGroup($arguments[0]);
+            }
+        }
+    }
+
     /**
      * Delete All Groups
      * @return array
@@ -48,8 +56,9 @@ class Groups extends AbstractApi
      * @param string $name Group name
      * @return array
      */
-    public function deleteGroup($name)
+    public function delete($name)
     {
+        echo 'delete group....';
         $result = [];
         $args = [];
         if (is_string($name)) {

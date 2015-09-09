@@ -13,7 +13,7 @@ $client = new Client($config['token']);
 ############Delete Group#############
 #####################################
 try {
-    $result = $client->group->deleteGroup('test1');
+    $result = $client->group->delete('test1');
     print_r($result);
     /*
      * Example return:

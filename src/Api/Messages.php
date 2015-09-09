@@ -15,9 +15,9 @@ class Messages extends AbstractApi
      * @param \FastSMS\Model\Message $message Message model
      * @return mixed
      */
-    public function send(Message $message)
+    public function send(Array $data)
     {
-        $args = $message->buildArgs();
+        $args = (new Message($data))->buildArgs();
         $result = [];
         $data = $this->client->http->call('Send', $args);
         $result['type'] = '';

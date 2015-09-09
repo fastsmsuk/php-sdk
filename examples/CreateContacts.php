@@ -23,10 +23,9 @@ $data = [
     'ignoreDupes' => false,
     'overwriteDupes' => true
 ];
-$contacts = new Contact($data);
 // Create contacts
 try {
-    $result = $client->contact->create($contacts);
+    $result = $client->contact->create($data);
     print_r($result);
     /*
      * Example return:
