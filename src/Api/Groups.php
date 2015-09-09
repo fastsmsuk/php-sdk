@@ -58,13 +58,12 @@ class Groups extends AbstractApi
      */
     public function delete($name)
     {
-        echo 'delete group....';
         $result = [];
         $args = [];
         if (is_string($name)) {
             $args['Group'] = $name;
         }
-        $data = $this->client->http->call('EmptyGroup', $args);
+        $data = $this->client->http->call('DeleteGroup', $args);
         $result['status'] = 'error';
         if ($data == 1) {
             $result['status'] = 'success';
