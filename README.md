@@ -99,8 +99,7 @@ $data = [
     'scheduleDate' => time() + 7200, //now + 2h
     'validityPeriod' => 3600 * 6, //maximum 86400 = 24 hours
 ];
-$message = new Message($data);
-$result = $client->message->send($message);
+$result = $client->message->send($data);
 ```
 
 ### Check message status
@@ -128,8 +127,7 @@ $data = [
     'creditReminder' => 10,
     'alert' => 5, //5 days
 ];
-$user = new User($data);
-$result = $client->user->create($user);
+$result = $client->user->create($data);
 ```
 
 ### Update Credits
@@ -169,9 +167,8 @@ $data = [
     'from' => time() - 3600 * 24 * 30,
     'to' => time()
 ];
-$report = new Report($data);
 // Get report
-$result = $client->report->get($report);
+$result = $client->report->get($data);
 ```
 
 ### Add contact(s)
@@ -190,9 +187,8 @@ $data = [
     'ignoreDupes' => false,
     'overwriteDupes' => true
 ];
-$contacts = new Contact($data);
 // Get report
-$result = $client->contact->create($contacts);
+$result = $client->contact->create($data);
 ```
 
 ### Delete All Contacts
@@ -222,7 +218,7 @@ Remove all contacts from the specified group. More information read [this](http:
 use FastSMS\Model\Contact;
 ...
 // Get report
-$result = $client->group->emptyGroup('Group Name');
+$result = $client->group->empty('Group Name');
 ```
 
 ### Delete Group
@@ -232,5 +228,5 @@ Delete the specified group. More information read [this](http://support.fastsms.
 use FastSMS\Model\Contact;
 ...
 // Get report
-$result = $client->group->deleteGroup('Group Name');
+$result = $client->group->delete('Group Name');
 ```

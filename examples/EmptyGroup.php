@@ -13,7 +13,7 @@ $client = new Client($config['token']);
 #############Empty Group#############
 #####################################
 try {
-    $result = $client->group->emptyGroup('test1');
+    $result = $client->group->empty('test1');
     print_r($result);
     /*
      * Example return:

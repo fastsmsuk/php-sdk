@@ -21,10 +21,10 @@ $data = [
     'scheduleDate' => time() + 7200,
     'validityPeriod' => 3600 * 6,
 ];
-$message1 = new Message($data);
+
 // Send Message
 try {
-    $result1 = $client->message->send($message1);
+    $result1 = $client->message->send($data);
     print_r($result1);
     /*
      * Example return:
@@ -48,16 +48,17 @@ try {
 #####################################
 ########Send message to list#########
 #####################################
-// Init message
-$message2 = new Message();
-$message2->list = $config['list'];
-$message2->sourceAddress = $config['source'];
-$message2->body = 'Test list';
-$message2->scheduleDate = time() + 7200;
-$message2->validityPeriod = 3600 * 6;
+$data = [
+    'list' => $config['list'],
+    'destinationAddress' => $config['destinations'],
+    'sourceAddress' => $config['source'],
+    'body' => 'Test API Wraper',
+    'scheduleDate' => time() + 7200,
+    'validityPeriod' => 3600 * 6,
+];
 // Send Message
 try {
-    $result2 = $client->message->send($message2);
+    $result2 = $client->message->send($data);
     print_r($result2);
     /*
      * Array
@@ -76,16 +77,16 @@ try {
 #####################################
 ########Send message to group########
 #####################################
-// Init message
-$message3 = new Message();
-$message3->group = $config['group'];
-$message3->sourceAddress = $config['source'];
-$message3->body = 'Test group';
-$message3->scheduleDate = time() + 7200;
-$message3->validityPeriod = 3600 * 6;
+$data = [
+    'group' => $config['group'],
+    'sourceAddress' => $config['source'],
+    'body' => 'Test group',
+    'scheduleDate' => time() + 7200,
+    'validityPeriod' => 3600 * 6,
+];
 // Send Message
 try {
-    $result3 = $client->message->send($message3);
+    $result3 = $client->message->send($data);
     print_r($result3);
     /*
      * Array

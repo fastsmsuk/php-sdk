@@ -18,10 +18,9 @@ $data = [
     'childUsername' => $config['existChildUser'],
     'quantity' => -5,
 ];
-$user = new User($data);
 // Update credits
 try {
-    $result = $client->user->update($user);
+    $result = $client->user->update($data);
     print_r($result);
     /*
      * Example return:

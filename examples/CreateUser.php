@@ -26,10 +26,9 @@ $data = [
     'creditReminder' => 10,
     'alert' => 5, //5 days
 ];
-$user = new User($data);
 // Create user
 try {
-    $result = $client->user->create($user);
+    $result = $client->user->create($data);
     print_r($result);
     /*
      * Example return:

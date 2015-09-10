@@ -19,10 +19,9 @@ $data = [
     'from' => time() - 3600 * 24 * 30,
     'to' => time()
 ];
-$report = new Report($data);
 // Get report
 try {
-    $result = $client->report->get($report);
+    $result = $client->report->get($data);
     print_r($result);
     /*
      * Example return:

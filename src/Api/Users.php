@@ -15,9 +15,9 @@ class Users extends AbstractApi
      * @param \FastSMS\Model\User $user user model
      * @return array
      */
-    public function create(User $user)
+    public function create(Array $data)
     {
-        $args = $user->buildArgs();
+        $args = (new User($data))->buildArgs();
         $result = [];
         $data = $this->client->http->call('CreateUser', $args);
         $result['status'] = 'error';
@@ -32,9 +32,9 @@ class Users extends AbstractApi
      * @param \FastSMS\Model\User $user user model
      * @return array
      */
-    public function update(User $user)
+    public function update(Array $data)
     {
-        $args = $user->buildArgs();
+        $args = (new User($data))->buildArgs();
         $result = [];
         $data = $this->client->http->call('UpdateCredits', $args);
         $result['status'] = 'error';
