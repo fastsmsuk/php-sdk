@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'token' => '6Rx6-stiU-a8sY-vt9i', // Insert your token
+    'token' => 'YourToken', // Insert your token
     ###On create message###
     'destinations' => [ // Insert test phone numbers
         '0000000000'
