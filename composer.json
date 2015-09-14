@@ -11,9 +11,8 @@
     },
     "authors": [
         {
-            "name": "Ruslan Tabachuk",
-            "email": "ruslan.tabachuk@lezgro.com",
-            "role": "Developer"
+            "name": "FastSMS",
+            "email": "sdk@fastsms.co.uk"
         }
     ],
     "require": {
