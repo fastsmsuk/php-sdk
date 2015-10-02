@@ -2,7 +2,6 @@
 
 namespace FastSMS;
 
-use GuzzleHttp\Client as Guzzle;
 use FastSMS\Exception\RuntimeException;
 use FastSMS\Exception\ApiException;
 
@@ -69,31 +68,12 @@ class Http
     }
 
     /**
-     * Check support Guzzle library.
-     * @return boolean
-     */
-    private function checkGuzzleSupport()
-    {
-        if (version_compare(PHP_VERSION, '5.5.0') >= 0) {
-            if (ini_get('allow_url_fopen')) {
-                if(class_exists('\\GuzzleHttp\\Client')){
-                    return true;
-                }                
-            }
-        }
-        return false;
-    }
-
-    /**
      * Determine which HTTP library to use:
      * check for cURL, fsockopen, else fall back to file_get_contents
      */
     private function initHTTPLibrary()
     {
         switch (true) {
-            case $this->checkGuzzleSupport():
-                $this->library = 'guzzle';
-                break;
             case function_exists('curl_init'):
                 $this->library = 'curl';
                 break;
@@ -112,9 +92,6 @@ class Http
     {
         $result = '';
         switch ($this->library) {
-            case 'guzzle':
-                $result = $this->guzzle($this->buildArgs($action, $args, true));
-                break;
             case 'curl':
                 $result = $this->curl($this->buildArgs($action, $args));
                 break;
@@ -133,21 +110,6 @@ class Http
             throw new ApiException('Unknown API error.', (int) -$result);
         }
         return $result;
-    }
-
-    /**
-     * Call API used Guzzle
-     * @param string $query Send data
-     * @return mixed
-     */
-    protected function guzzle($query)
-    {
-        $client = new Guzzle();
-        $result = $client->post($this->buildUrl(), ['form_params' => $query]);
-        if (!$result || $result->getStatusCode() != 200) {
-            throw new RuntimeException('Connection to ' . self::SHEMA . self::URL . ' failed.');
-        }
-        return $result->getBody()->getContents();
     }
 
     /**
@@ -237,7 +199,6 @@ class Http
     public static function getSupportLibraries()
     {
         return [
-            'guzzle' => 'Guzzle',
             'curl' => 'сURL',
             'openssl' => 'OpenSSL',
             'fopen' => 'Base File System'
