@@ -49,7 +49,7 @@ class Message extends BaseModel
     * The Type Of Number for the source address (1 for international, 5 for alphanumeric).
     * @var integer
     */
-    public $sourceTON
+    public $sourceTON;
 
     /**
      * The period in seconds that the message will be tried for (maximum 86400 = 24 hours).
