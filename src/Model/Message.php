@@ -46,6 +46,12 @@ class Message extends BaseModel
     public $scheduleDate;
 
     /**
+    * The Type Of Number for the source address (1 for international, 5 for alphanumeric).
+    * @var integer
+    */
+    public $sourceTON
+
+    /**
      * The period in seconds that the message will be tried for (maximum 86400 = 24 hours).
      * @var integer Seconds
      */
@@ -80,11 +86,13 @@ class Message extends BaseModel
             }
         }
         // Set source
-        if ($this->sourceAddress && !empty($this->sourceAddress) &&
-            (is_string($this->sourceAddress) || is_integer($this->sourceAddress))) {
+        if ($this->sourceAddress && !empty($this->sourceAddress) && (is_string($this->sourceAddress) || is_integer($this->sourceAddress))) {
             $args['SourceTON'] = 5;
             if (is_integer($this->sourceAddress) && strlen($this->sourceAddress) >= 11) {
                 $args['SourceTON'] = 1;
+            }
+            if($this->sourceTON !== null && ($this->sourceTON == 1 || $this->sourceTON == 5)) {
+                $args['SourceTON'] = $this->sourceTON;
             }
             $args['SourceAddress'] = $this->sourceAddress;
         }

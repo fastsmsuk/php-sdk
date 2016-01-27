@@ -98,6 +98,7 @@ $data = [
     //optionals
     'scheduleDate' => time() + 7200, //now + 2h
     'validityPeriod' => 3600 * 6, //maximum 86400 = 24 hours
+    'sourceTON' => 1, //The Type Of Number for the source address (1 for international, 5 for alphanumeric)
 ];
 $result = $client->message->send($data);
 ```
