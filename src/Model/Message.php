@@ -55,7 +55,7 @@ class Message extends BaseModel
      * The period in seconds that the message will be tried for (maximum 86400 = 24 hours).
      * @var integer Seconds
      */
-    public $validityPeriod;
+    public $validityPeriod = 86400;
 
     /**
      * If the message is longer than 160 characters, the system by default will return only the first ID 
@@ -108,7 +108,7 @@ class Message extends BaseModel
         }
         // Set validity
         if ($this->validityPeriod && is_integer($this->validityPeriod) &&
-            $this->validityPeriod > 0 && $this->validityPeriod < 86400) {
+            $this->validityPeriod > 0 && $this->validityPeriod <= 86400) {
             $args['ValidityPeriod'] = $this->validityPeriod;
         }
         $args['GetAllMessageIDs'] = $this->getAllMessageIDs;
