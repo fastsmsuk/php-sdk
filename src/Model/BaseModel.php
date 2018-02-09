@@ -2,9 +2,9 @@
 
 namespace FastSMS\Model;
 
-use FastSMS\Object;
+use FastSMS\FastSMSObject;
 
-class BaseModel extends Object
+class BaseModel extends FastSMSObject
 {
     /**
      * Errors container.

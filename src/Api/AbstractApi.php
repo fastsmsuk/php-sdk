@@ -2,11 +2,11 @@
 
 namespace FastSMS\Api;
 
-use FastSMS\Object;
+use FastSMS\FastSMSObject;
 use FastSMS\Client;
 
 
-abstract class AbstractApi extends Object
+abstract class AbstractApi extends FastSMSObject
 {
 
     /**
