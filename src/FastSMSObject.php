@@ -5,7 +5,7 @@ namespace FastSMS;
 use FastSMS\Exception\BadMethodCallException;
 use FastSMS\Exception\UnknownPropertyException;
 
-class Object
+class FastSMSObject
 {
 
     /**
